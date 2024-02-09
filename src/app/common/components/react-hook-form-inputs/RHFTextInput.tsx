@@ -1,3 +1,4 @@
+'use client';
 import { FC, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { InputProps } from './types';
@@ -22,9 +23,9 @@ export const RHFTextInput: FC<InputProps> = props => {
             {...register(name)}
             placeholder={label}
             disabled={disabled}
-            className={`input input-bordered ${!error ? 'border-error' : 'border-neutral'} w-full max-w-xs ${endIcon && 'pr-10'} ${
-              startIcon && 'pl-10'
-            } ${className}`}
+            className={`input input-bordered focus:outline-none bg-slate-200 ${
+              error ? 'border-error focus:border-error' : 'focus:border-none border-none'
+            } w-full max-w-xs ${endIcon && 'pr-10'} ${startIcon && 'pl-10'} ${className}`}
           />
 
           {!!startIcon && <span className={`absolute top-1/2 -translate-y-1/2 left-4 ${error && 'text-error'}`}>{startIcon}</span>}

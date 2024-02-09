@@ -1,3 +1,4 @@
+'use client';
 import { FC, useState } from 'react';
 import { FaEye as FaEyeIcon, FaEyeSlash as FaEyeSlashIcon } from 'react-icons/fa';
 import { PasswordInputProps } from './types';

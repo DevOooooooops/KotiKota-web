@@ -15,3 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+html,
+body,
+#root {
+  @apply p-0 m-0 h-screen w-screen overflow-x-hidden relative;
+}

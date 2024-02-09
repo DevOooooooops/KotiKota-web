@@ -1,9 +1,14 @@
-"use client";
+'use client';
 
-import { SessionProvider as Provider } from "next-auth/react";
-import { FC } from "react";
-import { IChildren } from ".";
+import { SessionProvider } from 'next-auth/react';
+import { FC } from 'react';
+import { IChildren } from '.';
+import { SnackbarProvider } from 'notistack';
 
-export const SessionProvider: FC<IChildren> = ({ children }) => {
-  return <Provider>{children}</Provider>;
+export const MainProvider: FC<IChildren> = ({ children }) => {
+  return (
+    <SessionProvider>
+      <SnackbarProvider anchorOrigin={{ horizontal: 'right', vertical: 'top' }}>{children}</SnackbarProvider>
+    </SessionProvider>
+  );
 };
