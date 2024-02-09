@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+import theme from 'daisyui/src/theming/themes';
+
 const config: Config = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
@@ -16,12 +18,14 @@ const config: Config = {
     themes: [
       {
         light: {
+          ...theme['light'],
           primary: '#22c55e',
           secondary: '#86efac',
+          tertiary: '86efad9c',
           accent: '#f5f5f4',
-          neutral: '##d4d4d4',
+          neutral: '#d4d4d4',
           white: '#f8fafc',
-          black: '#1f2937',
+          black: '#334155',
           error: '#dc2626',
           success: '#16a34a',
           info: '#2563eb',

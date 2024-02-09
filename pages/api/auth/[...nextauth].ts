@@ -1,8 +1,8 @@
-import { User, UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/provider';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { ICredential } from './type';
-import { auth } from '@/app/provider';
 
 export const authOptions = {
   pages: {

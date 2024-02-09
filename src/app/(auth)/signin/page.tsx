@@ -1,15 +1,15 @@
 'use client';
-import { RHFTextInput, RHFPasswordInput } from '@/app/common/components';
-import { Button } from '@/app/common/components/button/Button';
-import { SIGN_UP_PATH } from '@/app/common/constants/variables';
-import { useFetch } from '@/app/common/hooks';
-import { TLoginInput, fieldErrorMessages, loginResolver } from '@/app/common/resolvers';
-import { TSignIn, authProvider } from '@/app/provider';
+import { RHFPasswordInput, RHFTextInput } from '@/common/components';
+import { Button } from '@/common/components/button/Button';
+import { SIGN_UP_PATH } from '@/common/constants/variables';
+import { useFetch } from '@/common/hooks';
+import { TLoginInput, fieldErrorMessages, loginResolver } from '@/common/resolvers';
+import { TSignIn, authProvider } from '@/provider';
 import { User } from 'firebase/auth';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
-import { FaUser, FaLock } from 'react-icons/fa6';
+import { FormProvider, useForm } from 'react-hook-form';
+import { FaLock, FaUser } from 'react-icons/fa6';
 
 const SignIn = () => {
   const form = useForm<TLoginInput>({ mode: 'all', resolver: loginResolver });
@@ -22,7 +22,6 @@ const SignIn = () => {
   }, [error, form]);
 
   const handleSubmit = form.handleSubmit(({ password, email }) => fetch(email, password));
-
   return (
     <div>
       <h1 className='text-2xl font-bold mb-7'>Sign In</h1>

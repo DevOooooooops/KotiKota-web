@@ -1,15 +1,14 @@
 'use client';
-import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+
+import { auth } from '@/provider';
+import { useState } from 'react';
 
 export default function Home() {
-  useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect('/signin');
-    },
-  });
-  return <div></div>;
-}
+  const [sideBar, setSideBar] = useState(false);
 
-Home.requireAuth = true;
+  const handleToggleSideBar = () => setSideBar(e => !e);
+
+  auth.currentUser?.getIdToken().then(console.log);
+
+  return <div className='w-screen h-screen flex justify-start items-start'></div>;
+}

@@ -1,11 +1,11 @@
 'use client';
-import { RHFPasswordInput, RHFTextInput } from '@/app/common/components';
-import { Button } from '@/app/common/components/button/Button';
-import { fieldMessages } from '@/app/common/constants';
-import { SIGN_IN_PATH } from '@/app/common/constants/variables';
-import { useFetch } from '@/app/common/hooks';
-import { signUpResolver } from '@/app/common/resolvers';
-import { TSignUp, authProvider } from '@/app/provider';
+import { RHFPasswordInput, RHFTextInput } from '@/common/components';
+import { Button } from '@/common/components/button/Button';
+import { fieldMessages } from '@/common/constants';
+import { SIGN_IN_PATH } from '@/common/constants/variables';
+import { useFetch } from '@/common/hooks';
+import { signUpResolver } from '@/common/resolvers';
+import { TSignUp, authProvider } from '@/provider';
 import { User } from 'firebase/auth';
 import Link from 'next/link';
 import { redirect, useRouter } from 'next/navigation';

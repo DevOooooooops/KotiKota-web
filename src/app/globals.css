@@ -21,3 +21,11 @@ body,
 #root {
   @apply p-0 m-0 h-screen w-screen overflow-x-hidden relative;
 }
+
+.icon-button {
+  @apply p-2 rounded-full active:scale-[0.95] cursor-pointer;
+}
+
+.text-nowrap {
+  text-wrap: nowrap;
+}
