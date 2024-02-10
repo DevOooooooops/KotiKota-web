@@ -3,13 +3,14 @@
 
 import { Button } from '@/common/components/button/Button';
 import { fieldMessages } from '@/common/constants';
+import { useWhoami } from '@/common/context';
 import { useFetch } from '@/common/hooks';
 import { fieldErrorMessages } from '@/common/resolvers';
 import { formatNumber, getColorBy, renderBase64 } from '@/common/utils';
-import { TDonate, TGetOneProject, auth, projectProvider } from '@/provider';
+import { TDonate, TGetOneProject, projectProvider } from '@/provider';
 import { Project, ProjectDonation } from '@/provider/client';
 import { useSnackbar } from 'notistack';
-import { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import { GiShakingHands } from 'react-icons/gi';
 
 const Page: FC<any> = ({ params }) => {
@@ -19,16 +20,19 @@ const Page: FC<any> = ({ params }) => {
   const { fetch: donate, isLoading: donationLoading } = useFetch<ProjectDonation[], TDonate>(projectProvider.donate);
   const { enqueueSnackbar } = useSnackbar();
 
+  const { whoami } = useWhoami();
+
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (/^[\d\s\.]/gi.test(value)) {
+    if (!/[^\d\s\.]/gi.test(value)) {
       setInput(value);
     }
   };
 
   const handleSubmit = (e?: FormEvent) => {
     if (e) e.preventDefault();
-    donate(data?.id || '', { amount: +input.replace(/^\d/g, ''), destination: data?.id, source: auth.currentUser?.uid })
+
+    donate(data?.id || '', { amount: +input.replace(/^\d/g, ''), destination: data?.id, source: whoami?.user?.id })
       .then(() => {
         enqueueSnackbar(fieldMessages.success_donation, { className: 'bg-success' });
       })
@@ -43,14 +47,12 @@ const Page: FC<any> = ({ params }) => {
 
   return (
     <>
-      <div className='flex justify-center items-center w-full h-[90vh] flex-row'>
+      <div className='flex pt-10 justify-center items-center mx-auto w-full h-[90vh]'>
         {
-          <div className='lg:flex-col flex-row w-4/6 lg:w-2/3 h-2/3 rounded-lg py-2 shadow-lg flex justify-center gap-3 items-start'>
+          <div className='w-3/4 lg:w-2/3 lg:h-2/3 h-max rounded-lg py-2 shadow-lg flex justify-center gap-3 items-start flex-col lg:flex-row'>
             {data && (
               <>
-                <div className=' relative overflow-hidden lg:basis-[49%] h-full flex justify-center items-start'>
-                  {data.logo && <img src={renderBase64(data.logo)} alt='logo' className='absolute top-0 left-0 rounded-lg object-cover h-full' />}
-                </div>
+                {data.logo && <img src={renderBase64(data.logo)} alt='logo' className=' w-full lg:w-[50%] object-cover h-[45%] lg:h-full p-3' />}
                 <div className='basis-[49%] p-5 lg:basis-[49%] h-full'>
                   <div className='mb-4'>
                     <div className={`px-4 mr-2 badge-lg badge text-xs ${getColorBy.projectHealth(data.health)}`}>{data.health}</div>

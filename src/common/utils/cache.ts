@@ -29,7 +29,7 @@ export const cache = {
 
 export const getCached = {
   whoami() {
-    return getItem(WHOAMI_ITEM);
+    return getItem(WHOAMI_ITEM) as Whoami;
   },
   token() {
     return localStorage.getItem(TOKEN_ITEM);
