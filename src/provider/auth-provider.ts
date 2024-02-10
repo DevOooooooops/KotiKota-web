@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '.';
+import { auth, securityApi } from '.';
 import { signIn } from 'next-auth/react';
 
 export const authProvider = {
@@ -9,5 +9,9 @@ export const authProvider = {
   },
   async signIn(email: string, password: string) {
     return signIn('credentials', { email, password, redirect: true, callbackUrl: '/' });
+  },
+  async whoami() {
+    const { data } = await securityApi().whoami();
+    return data;
   },
 };
