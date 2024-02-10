@@ -51,7 +51,7 @@ const Layout: FC<IChildren> = ({ children }) => {
             </div>
           </div>
         </div>
-        <Link href={SIGN_IN_PATH} className='hover:text-blue-700 mx-5 text-center'>
+        <Link href={SIGN_IN_PATH} onClick={() => localStorage.clear()} className='hover:text-blue-700 mx-5 text-center'>
           Logout
         </Link>
       </div>
