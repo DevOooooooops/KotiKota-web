@@ -1,5 +1,5 @@
 import { projectsApi } from '.';
-import { Project, ProjectStatus, ProjectHealth } from './client';
+import { Project, ProjectStatus, ProjectHealth, CreateProjectDonation } from './client';
 
 export const projectProvider = {
   async getAll(ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number) {
@@ -12,6 +12,10 @@ export const projectProvider = {
   },
   async getOne(projectId: string) {
     const { data } = await projectsApi().getProjectById(projectId);
+    return data;
+  },
+  async donate(projectId: string, createProjectDonation: CreateProjectDonation) {
+    const { data } = await projectsApi().donate(projectId, [createProjectDonation]);
     return data;
   },
 };
