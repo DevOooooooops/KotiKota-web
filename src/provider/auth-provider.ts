@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, securityApi } from '.';
+import { auth, securityApi, userProvider } from '.';
 import { signIn } from 'next-auth/react';
+import { v4 } from 'uuid';
 
 export const authProvider = {
   async signUp(email: string, password: string) {
-    const user = createUserWithEmailAndPassword(auth, email, password);
+    const user = await createUserWithEmailAndPassword(auth, email, password);
+    await userProvider.create({ firebaseId: user.user.uid, id: v4() });
     return user;
   },
   async signIn(email: string, password: string) {
