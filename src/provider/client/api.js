@@ -703,6 +703,33 @@ exports.ProjectsApi = ProjectsApi;
 exports.SecurityApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         *
+         * @param {UsernamePassword} [usernamePassword]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestToken: (usernamePassword, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/token`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(usernamePassword, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * tells you who you are
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -739,6 +766,18 @@ exports.SecurityApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.SecurityApiAxiosParamCreator(configuration);
     return {
         /**
+         *
+         * @param {UsernamePassword} [usernamePassword]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestToken(usernamePassword, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.requestToken(usernamePassword, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * tells you who you are
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -759,6 +798,15 @@ exports.SecurityApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.SecurityApiFp(configuration);
     return {
         /**
+         *
+         * @param {UsernamePassword} [usernamePassword]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestToken(usernamePassword, options) {
+            return localVarFp.requestToken(usernamePassword, options).then((request) => request(axios, basePath));
+        },
+        /**
          * tells you who you are
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -775,6 +823,16 @@ exports.SecurityApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class SecurityApi extends base_1.BaseAPI {
+    /**
+     *
+     * @param {UsernamePassword} [usernamePassword]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SecurityApi
+     */
+    requestToken(usernamePassword, options) {
+        return exports.SecurityApiFp(this.configuration).requestToken(usernamePassword, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * tells you who you are
      * @param {*} [options] Override http request option.

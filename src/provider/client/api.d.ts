@@ -98,6 +98,12 @@ export interface CreateProject {
    * @memberof CreateProject
    */
   health?: ProjectHealth;
+  /**
+   * the base64 encoded image
+   * @type {string}
+   * @memberof CreateProject
+   */
+  logo?: string;
 }
 /**
  *
@@ -285,6 +291,12 @@ export interface Project {
    * @memberof Project
    */
   health?: ProjectHealth;
+  /**
+   * the base64 encoded image
+   * @type {string}
+   * @memberof Project
+   */
+  logo?: string;
 }
 /**
  *
@@ -472,6 +484,25 @@ export interface UserProfile {
    * @memberof UserProfile
    */
   email?: string;
+}
+/**
+ *
+ * @export
+ * @interface UsernamePassword
+ */
+export interface UsernamePassword {
+  /**
+   *
+   * @type {string}
+   * @memberof UsernamePassword
+   */
+  username?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof UsernamePassword
+   */
+  password?: string;
 }
 /**
  *
@@ -907,6 +938,13 @@ export declare class ProjectsApi extends BaseAPI {
  */
 export declare const SecurityApiAxiosParamCreator: (configuration?: Configuration) => {
   /**
+   *
+   * @param {UsernamePassword} [usernamePassword]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   */
+  requestToken: (usernamePassword?: UsernamePassword, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+  /**
    * tells you who you are
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -918,6 +956,13 @@ export declare const SecurityApiAxiosParamCreator: (configuration?: Configuratio
  * @export
  */
 export declare const SecurityApiFp: (configuration?: Configuration) => {
+  /**
+   *
+   * @param {UsernamePassword} [usernamePassword]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   */
+  requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
   /**
    * tells you who you are
    * @param {*} [options] Override http request option.
@@ -935,6 +980,13 @@ export declare const SecurityApiFactory: (
   axios?: AxiosInstance
 ) => {
   /**
+   *
+   * @param {UsernamePassword} [usernamePassword]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   */
+  requestToken(usernamePassword?: UsernamePassword, options?: any): AxiosPromise<string>;
+  /**
    * tells you who you are
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -948,6 +1000,14 @@ export declare const SecurityApiFactory: (
  * @extends {BaseAPI}
  */
 export declare class SecurityApi extends BaseAPI {
+  /**
+   *
+   * @param {UsernamePassword} [usernamePassword]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SecurityApi
+   */
+  requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<string>>;
   /**
    * tells you who you are
    * @param {*} [options] Override http request option.
