@@ -33,7 +33,7 @@ const Page = () => {
     <div className='w-full h-full flex justify-center items-center'>
       <FormProvider {...form}>
         <form className='p-7 bg-white rounded-lg' onSubmit={handleSubmit}>
-          <h1 className='text-xl'>Create Project</h1>
+          <h1 className='text-xl'>Create crowdfunding</h1>
           <RHFTextInput className='w-80' name='name' label='Name' startIcon={<FaPen />} />
           <RHFTextInput className='w-80' name='description' label='Description' startIcon={<MdOutlineDescription />} />
           <RHFTextInput className='w-80' type='date' name='deadline' label='Deadline' startIcon={<FaHistory />} />

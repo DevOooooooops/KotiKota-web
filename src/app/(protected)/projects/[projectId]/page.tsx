@@ -4,7 +4,6 @@
 import { Button } from '@/common/components/button/Button';
 import { fieldMessages } from '@/common/constants';
 import { PROJECT_PATH } from '@/common/constants/variables';
-import { useWhoami } from '@/common/context';
 import { useFetch } from '@/common/hooks';
 import { fieldErrorMessages } from '@/common/resolvers';
 import { formatNumber, getCached, getColorBy, renderBase64 } from '@/common/utils';
