@@ -2,7 +2,7 @@
 import { RHFPasswordInput, RHFTextInput } from '@/common/components';
 import { Button } from '@/common/components/button/Button';
 import { fieldMessages } from '@/common/constants';
-import { SIGN_IN_PATH } from '@/common/constants/variables';
+import { PROFILE_PATH, SIGN_IN_PATH } from '@/common/constants/variables';
 import { useFetch } from '@/common/hooks';
 import { signUpResolver } from '@/common/resolvers';
 import { TSignUp, authProvider } from '@/provider';
@@ -29,7 +29,7 @@ export const SignUp = () => {
   const handleSubmit = form.handleSubmit(({ password, email }) =>
     fetch(email, password).then(() => {
       enqueueSnackbar(fieldMessages.success_signup);
-      push(SIGN_IN_PATH);
+      push(PROFILE_PATH);
     })
   );
   return (

@@ -10,3 +10,4 @@ export type TCreateOrUpdateProject = typeof projectProvider.createOrUpdate;
 export type TDonate = typeof projectProvider.donate;
 
 export type TUpdateProfile = typeof userProvider.updateProfile;
+export type TGetOneProfile = typeof userProvider.getOne;
