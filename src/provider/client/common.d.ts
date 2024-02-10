@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Configuration } from "./configuration";
-import { RequestArgs } from "./base";
+import { Configuration } from './configuration';
+import { RequestArgs } from './base';
 import { AxiosInstance, AxiosResponse } from 'axios';
 /**
  *
  * @export
  */
-export declare const DUMMY_BASE_URL = "https://example.com";
+export declare const DUMMY_BASE_URL = 'https://example.com';
 /**
  *
  * @throws {RequiredError}
@@ -62,4 +62,9 @@ export declare const toPathString: (url: URL) => string;
  *
  * @export
  */
-export declare const createRequestFunction: (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) => <T = unknown, R = AxiosResponse<T>>(axios?: AxiosInstance, basePath?: string) => Promise<R>;
+export declare const createRequestFunction: (
+  axiosArgs: RequestArgs,
+  globalAxios: AxiosInstance,
+  BASE_PATH: string,
+  configuration?: Configuration
+) => <T = unknown, R = AxiosResponse<T>>(axios?: AxiosInstance, basePath?: string) => Promise<R>;

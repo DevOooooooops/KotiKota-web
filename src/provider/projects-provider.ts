@@ -1,9 +1,9 @@
 import { projectsApi } from '.';
-import { Project } from './client';
+import { Project, ProjectStatus, ProjectHealth } from './client';
 
 export const projectProvider = {
-  async getAll(ownerId?: string, page?: number, perPage?: number) {
-    const { data } = await projectsApi().getAllProjects(ownerId, page, perPage);
+  async getAll(ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number) {
+    const { data } = await projectsApi().getAllProjects(ownerId, name, status, health, page, pageSize);
     return data;
   },
   async createOrUpdate(project: Project) {

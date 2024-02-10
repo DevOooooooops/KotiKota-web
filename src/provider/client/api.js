@@ -145,12 +145,47 @@ exports.ProjectsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
-         * @summary Create or update projects
-         * @param {Array<Project>} [project]
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {ProjectComment} [projectComment]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        crupdateProjects: (project, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        commentProject: (projectId, projectComment, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'projectId' is not null or undefined
+            common_1.assertParamExists('commentProject', 'projectId', projectId);
+            const localVarPath = `/projects/{projectId}/comments`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication BearerAuth required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(projectComment, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Create or update projects
+         * @param {Array<CreateProject>} [createProject]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        crupdateProjects: (createProject, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/projects`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -168,7 +203,42 @@ exports.ProjectsApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(project, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(createProject, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary donate some money to a project
+         * @param {string} projectId
+         * @param {Array<CreateProjectDonation>} [createProjectDonation]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        donate: (projectId, createProjectDonation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'projectId' is not null or undefined
+            common_1.assertParamExists('donate', 'projectId', projectId);
+            const localVarPath = `/projects/{projectId}/donations`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication BearerAuth required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(createProjectDonation, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -178,12 +248,15 @@ exports.ProjectsApiAxiosParamCreator = function (configuration) {
          *
          * @summary Get the list of all projects
          * @param {string} [ownerId] Filter projects by ownerId
+         * @param {string} [name] Filter projects by name
+         * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+         * @param {ProjectHealth} [health] Filter projects by ProjectHealth
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllProjects: (ownerId, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAllProjects: (ownerId, name, status, health, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/projects`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -197,11 +270,65 @@ exports.ProjectsApiAxiosParamCreator = function (configuration) {
             if (ownerId !== undefined) {
                 localVarQueryParameter['ownerId'] = ownerId;
             }
+            if (name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (health !== undefined) {
+                localVarQueryParameter['health'] = health;
+            }
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
             if (pageSize !== undefined) {
                 localVarQueryParameter['pageSize'] = pageSize;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary get all donations made on a project
+         * @param {string} projectId
+         * @param {string} [source]
+         * @param {string} [beginDate]
+         * @param {string} [endDate]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDonationsByProjectId: (projectId, source, beginDate, endDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'projectId' is not null or undefined
+            common_1.assertParamExists('getDonationsByProjectId', 'projectId', projectId);
+            const localVarPath = `/projects/{projectId}/donations`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (beginDate !== undefined) {
+                localVarQueryParameter['beginDate'] = (beginDate instanceof Date) ?
+                    beginDate.toISOString().substr(0, 10) :
+                    beginDate;
+            }
+            if (endDate !== undefined) {
+                localVarQueryParameter['endDate'] = (endDate instanceof Date) ?
+                    endDate.toISOString().substr(0, 10) :
+                    endDate;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -240,6 +367,38 @@ exports.ProjectsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         *
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProjectComments: (projectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'projectId' is not null or undefined
+            common_1.assertParamExists('getProjectComments', 'projectId', projectId);
+            const localVarPath = `/projects/{projectId}/comments`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication BearerAuth required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -251,14 +410,42 @@ exports.ProjectsApiFp = function (configuration) {
     return {
         /**
          *
-         * @summary Create or update projects
-         * @param {Array<Project>} [project]
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {ProjectComment} [projectComment]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        crupdateProjects(project, options) {
+        commentProject(projectId, projectComment, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.crupdateProjects(project, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.commentProject(projectId, projectComment, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         *
+         * @summary Create or update projects
+         * @param {Array<CreateProject>} [createProject]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        crupdateProjects(createProject, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.crupdateProjects(createProject, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         *
+         * @summary donate some money to a project
+         * @param {string} projectId
+         * @param {Array<CreateProjectDonation>} [createProjectDonation]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        donate(projectId, createProjectDonation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.donate(projectId, createProjectDonation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -266,14 +453,33 @@ exports.ProjectsApiFp = function (configuration) {
          *
          * @summary Get the list of all projects
          * @param {string} [ownerId] Filter projects by ownerId
+         * @param {string} [name] Filter projects by name
+         * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+         * @param {ProjectHealth} [health] Filter projects by ProjectHealth
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllProjects(ownerId, page, pageSize, options) {
+        getAllProjects(ownerId, name, status, health, page, pageSize, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAllProjects(ownerId, page, pageSize, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAllProjects(ownerId, name, status, health, page, pageSize, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         *
+         * @summary get all donations made on a project
+         * @param {string} projectId
+         * @param {string} [source]
+         * @param {string} [beginDate]
+         * @param {string} [endDate]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDonationsByProjectId(projectId, source, beginDate, endDate, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDonationsByProjectId(projectId, source, beginDate, endDate, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -290,6 +496,19 @@ exports.ProjectsApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         *
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProjectComments(projectId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getProjectComments(projectId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -301,25 +520,63 @@ exports.ProjectsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          *
-         * @summary Create or update projects
-         * @param {Array<Project>} [project]
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {ProjectComment} [projectComment]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        crupdateProjects(project, options) {
-            return localVarFp.crupdateProjects(project, options).then((request) => request(axios, basePath));
+        commentProject(projectId, projectComment, options) {
+            return localVarFp.commentProject(projectId, projectComment, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Create or update projects
+         * @param {Array<CreateProject>} [createProject]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        crupdateProjects(createProject, options) {
+            return localVarFp.crupdateProjects(createProject, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary donate some money to a project
+         * @param {string} projectId
+         * @param {Array<CreateProjectDonation>} [createProjectDonation]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        donate(projectId, createProjectDonation, options) {
+            return localVarFp.donate(projectId, createProjectDonation, options).then((request) => request(axios, basePath));
         },
         /**
          *
          * @summary Get the list of all projects
          * @param {string} [ownerId] Filter projects by ownerId
+         * @param {string} [name] Filter projects by name
+         * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+         * @param {ProjectHealth} [health] Filter projects by ProjectHealth
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllProjects(ownerId, page, pageSize, options) {
-            return localVarFp.getAllProjects(ownerId, page, pageSize, options).then((request) => request(axios, basePath));
+        getAllProjects(ownerId, name, status, health, page, pageSize, options) {
+            return localVarFp.getAllProjects(ownerId, name, status, health, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary get all donations made on a project
+         * @param {string} projectId
+         * @param {string} [source]
+         * @param {string} [beginDate]
+         * @param {string} [endDate]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDonationsByProjectId(projectId, source, beginDate, endDate, options) {
+            return localVarFp.getDonationsByProjectId(projectId, source, beginDate, endDate, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -330,6 +587,16 @@ exports.ProjectsApiFactory = function (configuration, basePath, axios) {
          */
         getProjectById(projectId, options) {
             return localVarFp.getProjectById(projectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary comment out a project
+         * @param {string} projectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProjectComments(projectId, options) {
+            return localVarFp.getProjectComments(projectId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -342,27 +609,68 @@ exports.ProjectsApiFactory = function (configuration, basePath, axios) {
 class ProjectsApi extends base_1.BaseAPI {
     /**
      *
-     * @summary Create or update projects
-     * @param {Array<Project>} [project]
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {ProjectComment} [projectComment]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    crupdateProjects(project, options) {
-        return exports.ProjectsApiFp(this.configuration).crupdateProjects(project, options).then((request) => request(this.axios, this.basePath));
+    commentProject(projectId, projectComment, options) {
+        return exports.ProjectsApiFp(this.configuration).commentProject(projectId, projectComment, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Create or update projects
+     * @param {Array<CreateProject>} [createProject]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    crupdateProjects(createProject, options) {
+        return exports.ProjectsApiFp(this.configuration).crupdateProjects(createProject, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary donate some money to a project
+     * @param {string} projectId
+     * @param {Array<CreateProjectDonation>} [createProjectDonation]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    donate(projectId, createProjectDonation, options) {
+        return exports.ProjectsApiFp(this.configuration).donate(projectId, createProjectDonation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
      * @summary Get the list of all projects
      * @param {string} [ownerId] Filter projects by ownerId
+     * @param {string} [name] Filter projects by name
+     * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+     * @param {ProjectHealth} [health] Filter projects by ProjectHealth
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectsApi
      */
-    getAllProjects(ownerId, page, pageSize, options) {
-        return exports.ProjectsApiFp(this.configuration).getAllProjects(ownerId, page, pageSize, options).then((request) => request(this.axios, this.basePath));
+    getAllProjects(ownerId, name, status, health, page, pageSize, options) {
+        return exports.ProjectsApiFp(this.configuration).getAllProjects(ownerId, name, status, health, page, pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary get all donations made on a project
+     * @param {string} projectId
+     * @param {string} [source]
+     * @param {string} [beginDate]
+     * @param {string} [endDate]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getDonationsByProjectId(projectId, source, beginDate, endDate, options) {
+        return exports.ProjectsApiFp(this.configuration).getDonationsByProjectId(projectId, source, beginDate, endDate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -374,6 +682,17 @@ class ProjectsApi extends base_1.BaseAPI {
      */
     getProjectById(projectId, options) {
         return exports.ProjectsApiFp(this.configuration).getProjectById(projectId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getProjectComments(projectId, options) {
+        return exports.ProjectsApiFp(this.configuration).getProjectComments(projectId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ProjectsApi = ProjectsApi;
