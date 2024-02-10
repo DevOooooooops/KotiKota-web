@@ -20,7 +20,7 @@ const Layout: FC<IChildren> = ({ children }) => {
           </div>
         </div>
       </div>
-      {children}
+      <div className='mt-20 p-2 w-full h-[90vh] overflow-x-hidden overflow-y-auto'>{children}</div>
     </div>
   );
 };
