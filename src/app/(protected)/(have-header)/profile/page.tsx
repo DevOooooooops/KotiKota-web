@@ -8,13 +8,16 @@ import { FaMailBulk, FaUserCircle } from 'react-icons/fa';
 import { v4 } from 'uuid';
 import { useFetch } from '@/common/hooks';
 import BG from '@/assets/bg.png';
+import { getCached } from '@/common/utils';
 
 export const Profile = () => {
   const form = useForm({ mode: 'all' });
   const { enqueueSnackbar } = useSnackbar();
   const { isLoading, fetch, error } = useFetch<string, TUpdateProfile>(userProvider.updateProfile);
+  const userId = getCached.userId()
+
   const handleSubmit = form.handleSubmit(({ email, firstname, lastname }) =>
-    fetch(v4(), { email, first_name: firstname, last_name: lastname }).then(() => {
+    fetch(userId as string, { email, first_name: firstname, last_name: lastname }).then(() => {
       enqueueSnackbar(fieldMessages.success_profile_update);
     })
   );

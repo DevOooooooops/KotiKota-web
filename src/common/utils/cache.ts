@@ -2,6 +2,7 @@ import { Whoami } from '@/provider/client';
 
 const WHOAMI_ITEM = 'whoami';
 const TOKEN_ITEM = 'token';
+const USER_ID = 'userId';
 
 const setItem = (name: string, value: any, ifNull = '') => {
   try {
@@ -25,13 +26,19 @@ export const cache = {
   token(value = '') {
     localStorage.setItem(TOKEN_ITEM, value);
   },
+  userId(value = '') {
+    localStorage.setItem(USER_ID, value);
+  },
 };
 
 export const getCached = {
-  whoami() {
+  whoami():Whoami {
     return getItem(WHOAMI_ITEM);
   },
   token() {
     return localStorage.getItem(TOKEN_ITEM);
   },
+  userId() {
+    return localStorage.getItem(USER_ID);
+  }
 };

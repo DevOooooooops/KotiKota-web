@@ -9,3 +9,4 @@ export type TGetOneProject = typeof projectProvider.getOne;
 export type TCreateOrUpdateProject = typeof projectProvider.createOrUpdate;
 
 export type TUpdateProfile = typeof userProvider.updateProfile;
+export type TGetAllUsers = typeof userProvider.getAll;

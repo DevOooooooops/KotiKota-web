@@ -1,4 +1,4 @@
-import { cache } from '@/common/utils';
+import { cache, getCached } from '@/common/utils';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { v4 } from 'uuid';
 import { auth, securityApi, userProvider } from '.';
@@ -13,11 +13,13 @@ export const authProvider = {
   async signIn(email: string, password: string) {
     const user = await signInWithEmailAndPassword(auth, email, password);
     user.user.getIdToken().then(cache.token);
+    
     return user;
   },
   async whoami() {
     const { data } = await securityApi().whoami();
     cache.whoami(data);
+    cache.userId(data.user?.id);
     return data;
   },
 };
