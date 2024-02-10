@@ -19,7 +19,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   return (
     <div
       onClick={handleClick}
-      className='cursor-pointer transition-all duration-100 hover:bg-slate-50 active:shadow-none w-96 h-[23rem] m-2 p-4 shadow-base-md rounded-md relative'
+      className='cursor-pointer bg-white transition-all duration-100 hover:bg-slate-50 active:shadow-none w-96 h-[23rem] m-2 p-4 shadow-base-md rounded-md relative'
     >
       <div className='flex w-full justify-between items-center'>
         {project.logo ? (

@@ -7,12 +7,11 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { FaMailBulk, FaUserCircle } from 'react-icons/fa';
 import { v4 } from 'uuid';
 import { useFetch } from '@/common/hooks';
-import BG from '@/assets/bg.png';
 
 export const Profile = () => {
   const form = useForm({ mode: 'all' });
   const { enqueueSnackbar } = useSnackbar();
-  const { isLoading, fetch, error } = useFetch<string, TUpdateProfile>(userProvider.updateProfile);
+  const { fetch } = useFetch<string, TUpdateProfile>(userProvider.updateProfile);
   const handleSubmit = form.handleSubmit(({ email, firstname, lastname }) =>
     fetch(v4(), { email, first_name: firstname, last_name: lastname }).then(() => {
       enqueueSnackbar(fieldMessages.success_profile_update);
@@ -20,7 +19,7 @@ export const Profile = () => {
   );
 
   return (
-    <div className='flex justify-center items-center h-full w-full mt-0' style={{ backgroundImage: `url(${BG.src})`, backgroundSize: 'cover' }}>
+    <div className='flex justify-center items-center h-full w-full mt-0'>
       <div>
         <div className='avatar'>
           <div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ml-32 translate-y-11'>
@@ -44,7 +43,7 @@ export const Profile = () => {
             <button
               onClick={handleSubmit}
               type='button'
-              className='bg-green-600 text-white px-6 py-2 rounded font-medium mt-4 hover:bg-green-700 transition duration-200 each-in-out'
+              className='bg-green-600 text-white px-6 py-2 rounded font-medium mt-4 hover:bg-green-700 transition duration-200 each-in-out '
             >
               Edit
             </button>
