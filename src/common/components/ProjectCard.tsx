@@ -2,10 +2,21 @@ import { FC } from 'react';
 import { ProjectCardProps } from '.';
 import { formatDate, formatNumber, formatText, getColorBy } from '../utils';
 import { FaHistory } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import { PROJECT_PATH } from '../constants/variables';
 
 export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
+  const { push } = useRouter();
+
+  const handleClick = () => {
+    push(`${PROJECT_PATH}/${project.id}`);
+  };
+
   return (
-    <div className='cursor-pointer transition-all duration-100 hover:bg-slate-50 active:shadow-none w-96 h-[23rem] m-2 p-4 shadow-base-md rounded-md relative'>
+    <div
+      onClick={handleClick}
+      className='cursor-pointer transition-all duration-100 hover:bg-slate-50 active:shadow-none w-96 h-[23rem] m-2 p-4 shadow-base-md rounded-md relative'
+    >
       <div className='flex w-full justify-between items-center'>
         <div className='avatar placeholder'>
           <div className='bg-secondary text-neutral-content rounded-lg w-16'>
