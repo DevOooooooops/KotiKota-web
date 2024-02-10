@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LOGO from '@/app/assets/kotikota-logo.png';
+import LOGO from '@/assets/kotikota-logo.png';
 
 const ChatPage = ({ children }: { children: React.ReactNode }) => {
   return (

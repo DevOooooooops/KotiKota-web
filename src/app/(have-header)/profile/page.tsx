@@ -4,7 +4,7 @@ import { fieldMessages } from '@/common/constants';
 import { TUpdateProfile, userProvider } from '@/provider';
 import { useSnackbar } from 'notistack';
 import { FormProvider, useForm } from 'react-hook-form';
-import { FaMailBulk } from 'react-icons/fa';
+import { FaMailBulk, FaUserCircle } from 'react-icons/fa';
 import { v4 } from 'uuid';
 import { useFetch } from '@/common/hooks';
 import BG from '@/assets/bg.png';
@@ -13,16 +13,14 @@ export const Profile = () => {
   const form = useForm({ mode: 'all' });
   const { enqueueSnackbar } = useSnackbar();
   const { isLoading, fetch, error } = useFetch<string, TUpdateProfile>(userProvider.updateProfile);
-
   const handleSubmit = form.handleSubmit(({ email, firstname, lastname }) =>
     fetch(v4(), { email, first_name: firstname, last_name: lastname }).then(() => {
       enqueueSnackbar(fieldMessages.success_profile_update);
-      //   push(SIGN_IN_PATH);
     })
   );
 
   return (
-    <div className='flex justify-center items-center h-full w-full' style={{ backgroundImage: `url(${BG.src})`, backgroundSize: 'cover' }}>
+    <div className='flex justify-center items-center h-full w-full mt-0' style={{ backgroundImage: `url(${BG.src})`, backgroundSize: 'cover' }}>
       <div>
         <div className='avatar'>
           <div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ml-32 translate-y-11'>
@@ -35,8 +33,8 @@ export const Profile = () => {
             <h1 className='text-2xl font-bold mb-75'>Profile</h1>
             <div className='block-container'>
               <div className='flex gap-7'>
-                <RHFTextInput label='Firstname' name='firstname' placeholder='First name' className='w-full pr-10' startIcon={<FaMailBulk />} />
-                <RHFTextInput label='Lastname' name='lastname' placeholder='Last name' className='w-full pr-10' startIcon={<FaMailBulk />} />
+                <RHFTextInput label='Firstname' name='firstname' placeholder='First name' className='w-full pr-10' startIcon={<FaUserCircle />} />
+                <RHFTextInput label='Lastname' name='lastname' placeholder='Last name' className='w-full pr-10' startIcon={<FaUserCircle />} />
               </div>
               <div className='flex gap-7'>
                 <RHFTextInput label='Email' name='email' placeholder='Email' className='w-full pr-10' startIcon={<FaMailBulk />} />
