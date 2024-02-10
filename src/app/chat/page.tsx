@@ -130,5 +130,3 @@ const ChatPage = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
-
-export default ChatPage;
