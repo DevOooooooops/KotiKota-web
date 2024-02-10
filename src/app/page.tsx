@@ -1,12 +1,20 @@
 'use client';
 
 import LOGO from '@/assets/kotikota-logo-without-circle.png';
-import { auth } from '@/provider';
+import { useFetch } from '@/common/hooks';
+import { getColorBy } from '@/common/utils';
+import { TGetAllProjects, auth, projectProvider } from '@/provider';
+import { Project } from '@/provider/client';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { GoSearch } from 'react-icons/go';
 
 export default function Home() {
-  auth.currentUser?.getIdToken().then(console.log);
+  const { fetch: fetchProjects, data: projects } = useFetch<Project[], TGetAllProjects>(projectProvider.getAll);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <div className='w-screen h-screen flex justify-start items-start'>
@@ -29,6 +37,28 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div className='mt-20 p-2 w-full h-[90vh] overflow-x-hidden overflow-y-auto flex justify-start items-start gap-4 flex-wrap'>
+        {projects &&
+          projects?.length > 0 &&
+          projects.map(project => (
+            <div key={project.id} className='w-96 h-72 m-2 p-4 shadow-base-md rounded-md relative'>
+              <div className='flex gap-4'>
+                <div className='basis-20'>
+                  <div className='avatar placeholder'>
+                    <div className='bg-secondary text-neutral-content rounded-lg w-16'>
+                      <span className='text-3xl text-white'>{(project.name || '')[0]}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={`mt-5 badge ${getColorBy.projectStatus(project.status)} py-4 px-8 text-black`}>{project.status}</div>
+              </div>
+              <div>
+                <h1 className='text-lg font-semibold'>{project.name}</h1>
+                <p className='text-md w-3/4 text-neutral'>{project.description}</p>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
