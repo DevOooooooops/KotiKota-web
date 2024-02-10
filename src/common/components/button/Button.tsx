@@ -1,6 +1,7 @@
 import { FC, ReactElement, cloneElement } from 'react';
 import { BsTriangle } from 'react-icons/bs';
 import { TButtonProps } from './type';
+import { SquareProgress } from '..';
 
 export const Button: FC<TButtonProps> = ({ label, className, color = 'primary', icon, isLoading, disabled, ...others }) => {
   const buttonColor = `btn-${color}`;
@@ -16,7 +17,7 @@ export const Button: FC<TButtonProps> = ({ label, className, color = 'primary', 
         {label}
         {isLoading && (
           <span className='animate-spin'>
-            <BsTriangle className={`m-2 -translate-y-[1px] text-${color}`} size={17} />
+            <SquareProgress size={17} />
           </span>
         )}
       </button>

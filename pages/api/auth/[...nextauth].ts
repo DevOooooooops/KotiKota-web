@@ -14,12 +14,10 @@ export const authOptions = {
       credentials: {},
       async authorize(_credentials): Promise<any> {
         const credentials = _credentials as ICredential;
-        return await signInWithEmailAndPassword(auth, credentials.email, credentials.password)
-          .then(user => user.user)
-          .catch(err => {
-            console.log(err);
-            return null;
-          });
+        return await signInWithEmailAndPassword(auth, credentials.email, credentials.password).catch(err => {
+          console.log(err);
+          return null;
+        });
       },
     }),
   ],

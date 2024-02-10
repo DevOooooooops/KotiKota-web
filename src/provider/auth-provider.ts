@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, securityApi, userProvider } from '.';
 import { signIn } from 'next-auth/react';
 import { v4 } from 'uuid';
+import { cache } from '@/common/utils';
 
 export const authProvider = {
   async signUp(email: string, password: string) {
@@ -10,10 +11,11 @@ export const authProvider = {
     return user;
   },
   async signIn(email: string, password: string) {
-    return signIn('credentials', { email, password, redirect: true, callbackUrl: '/' });
+    return await signIn('credentials', { email, password, redirect: true, callbackUrl: '/success' });
   },
   async whoami() {
     const { data } = await securityApi().whoami();
+    cache.whoami(data);
     return data;
   },
 };

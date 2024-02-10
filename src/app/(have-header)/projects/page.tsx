@@ -24,7 +24,7 @@ const Page = () => {
           </span>
         </div>
       </div>
-      <div className='flex justify-start items-start gap-4 flex-wrap'>
+      <div className='flex justify-center items-start gap-4 flex-wrap'>
         {projects && projects?.length > 0 && projects.map(project => <ProjectCard key={project.id} project={project} />)}
       </div>
     </>
