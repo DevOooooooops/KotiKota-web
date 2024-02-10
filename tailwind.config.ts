@@ -18,7 +18,7 @@ const config: Config = {
           error: '#dc2626',
           success: '#16a34a',
           info: '#2563eb',
-          warning: '#facc15',
+          warning: 'rgb(234 179 8)',
         },
       },
     ],
