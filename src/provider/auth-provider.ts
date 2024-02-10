@@ -17,7 +17,7 @@ export const authProvider = {
   },
   async whoami() {
     const { data } = await securityApi().whoami();
-    cache.whoami(data);
+    cache.user(data.user);
     return data;
   },
 };

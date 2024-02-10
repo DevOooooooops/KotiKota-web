@@ -1,0 +1,50 @@
+'use client';
+import { RHFTextInput } from '@/common/components';
+import { Button } from '@/common/components/button/Button';
+import { useWhoami } from '@/common/context';
+import { useFetch } from '@/common/hooks';
+import { TCrupdateProjectForm, crupdateProjectResolver } from '@/common/resolvers/project-resolver';
+import { getCached } from '@/common/utils';
+import { TCreateOrUpdateProject, projectProvider } from '@/provider';
+import { Project, ProjectHealth, ProjectStatus } from '@/provider/client';
+import { FormProvider, useForm } from 'react-hook-form';
+import { FaFile, FaHistory, FaMoneyBill, FaPen } from 'react-icons/fa';
+import { MdOutlineDescription } from 'react-icons/md';
+import { v4 } from 'uuid';
+
+const Page = () => {
+  const form = useForm<TCrupdateProjectForm>({ mode: 'all', resolver: crupdateProjectResolver });
+  const { fetch } = useFetch<Project[], TCreateOrUpdateProject>(projectProvider.createOrUpdate);
+  const { whoami } = useWhoami();
+
+  const handleSubmit = form.handleSubmit(async data => {
+    const userId = whoami.user?.id;
+    if (userId)
+      fetch({
+        ...data,
+        logo: data.logo.split(',')[1],
+        health: ProjectHealth.IN_PROGRESS,
+        status: ProjectStatus.OPEN,
+        id: v4(),
+        ownerId: userId,
+      });
+  });
+
+  return (
+    <div className='w-full h-full flex justify-center items-center'>
+      <FormProvider {...form}>
+        <form className='p-7 bg-white rounded-lg' onSubmit={handleSubmit}>
+          <h1 className='text-xl'>Create Project</h1>
+          <RHFTextInput className='w-80' name='name' label='Name' startIcon={<FaPen />} />
+          <RHFTextInput className='w-80' name='description' label='Description' startIcon={<MdOutlineDescription />} />
+          <RHFTextInput className='w-80' type='date' name='deadline' label='Deadline' startIcon={<FaHistory />} />
+          <RHFTextInput className='w-80' type='number' name='targetAmount' label='Target amount' startIcon={<FaMoneyBill />} />
+          <RHFTextInput className='w-80' type='file' accept='image/*' name='logo' label='Logo' startIcon={<FaFile />} />
+          <Button className='w-80' label='Submit' type='submit' />
+        </form>
+      </FormProvider>
+    </div>
+  );
+};
+
+export default Page;

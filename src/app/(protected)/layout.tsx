@@ -36,7 +36,7 @@ const Layout: FC<IChildren> = ({ children }) => {
             Message
           </Link>
 
-          <Link href={'/projects/crete'} className='hover:text-blue-700 mr-24  text-center'>
+          <Link href={'/projects/create'} className='hover:text-blue-700 mr-24  text-center'>
             Create project
           </Link>
 
@@ -44,9 +44,6 @@ const Layout: FC<IChildren> = ({ children }) => {
             Projects
           </Link>
         </div>
-        <Link href={SIGN_IN_PATH} className='hover:text-blue-700  text-center'>
-          Log out
-        </Link>
         <div style={{ cursor: 'pointer' }} onClick={() => push(PROFILE_PATH)} className='basis-16 flex justify-start items-start'>
           <div className='avatar online placeholder'>
             <div className='bg-neutral text-neutral-content rounded-full w-14'>
@@ -54,6 +51,9 @@ const Layout: FC<IChildren> = ({ children }) => {
             </div>
           </div>
         </div>
+        <Link href={SIGN_IN_PATH} className='hover:text-blue-700 mx-5 text-center'>
+          Logout
+        </Link>
       </div>
       <div className='mt-20 p-2 w-full h-[90vh] overflow-x-hidden overflow-y-auto'>{children}</div>
     </div>

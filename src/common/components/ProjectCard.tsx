@@ -1,13 +1,12 @@
 'use client';
 
 /* eslint-disable @next/next/no-img-element */
-import { FC, useEffect } from 'react';
-import { ProjectCardProps } from '.';
-import { formatDate, formatNumber, formatText, getColorBy } from '../utils';
-import { FaHistory } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { FC } from 'react';
+import { FaHistory } from 'react-icons/fa';
+import { ProjectCardProps } from '.';
 import { PROJECT_PATH } from '../constants/variables';
-import { auth } from '@/provider';
+import { formatDate, formatNumber, formatText, getColorBy } from '../utils';
 
 export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   const { push } = useRouter();

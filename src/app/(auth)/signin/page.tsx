@@ -1,7 +1,7 @@
 'use client';
 import { RHFPasswordInput, RHFTextInput } from '@/common/components';
 import { Button } from '@/common/components/button/Button';
-import { PROJECT_PATH, SIGN_UP_PATH } from '@/common/constants/variables';
+import { SIGN_IN_PATH, SIGN_UP_PATH, SUCCESS_PATH } from '@/common/constants/variables';
 import { useFetch } from '@/common/hooks';
 import { TLoginInput, fieldErrorMessages, loginResolver } from '@/common/resolvers';
 import { TSignIn, authProvider } from '@/provider';
@@ -25,8 +25,8 @@ const SignIn = () => {
 
   const handleSubmit = form.handleSubmit(({ password, email }) =>
     fetch(email, password)
-      .then(() => push(PROJECT_PATH))
-      .catch(() => push(PROJECT_PATH))
+      .then(() => push(SUCCESS_PATH))
+      .catch(() => push(SIGN_IN_PATH))
   );
   return (
     <div>

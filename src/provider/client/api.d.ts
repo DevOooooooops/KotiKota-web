@@ -18,18 +18,18 @@ import { RequestArgs, BaseAPI } from './base';
  * @interface BadRequestException
  */
 export interface BadRequestException {
-  /**
-   *
-   * @type {string}
-   * @memberof BadRequestException
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof BadRequestException
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BadRequestException
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BadRequestException
+     */
+    'message'?: string;
 }
 /**
  *
@@ -37,12 +37,12 @@ export interface BadRequestException {
  * @interface BankInfo
  */
 export interface BankInfo {
-  /**
-   *
-   * @type {number}
-   * @memberof BankInfo
-   */
-  amount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof BankInfo
+     */
+    'amount'?: number;
 }
 /**
  *
@@ -50,60 +50,60 @@ export interface BankInfo {
  * @interface CreateProject
  */
 export interface CreateProject {
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProject
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProject
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProject
-   */
-  description?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof CreateProject
-   */
-  targetAmount?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProject
-   */
-  deadline?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProject
-   */
-  ownerId?: string;
-  /**
-   *
-   * @type {ProjectStatus}
-   * @memberof CreateProject
-   */
-  status?: ProjectStatus;
-  /**
-   *
-   * @type {ProjectHealth}
-   * @memberof CreateProject
-   */
-  health?: ProjectHealth;
-  /**
-   * the base64 encoded image
-   * @type {string}
-   * @memberof CreateProject
-   */
-  logo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'description'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof CreateProject
+     */
+    'targetAmount'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'deadline'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'ownerId'?: string;
+    /**
+     *
+     * @type {ProjectStatus}
+     * @memberof CreateProject
+     */
+    'status'?: ProjectStatus;
+    /**
+     *
+     * @type {ProjectHealth}
+     * @memberof CreateProject
+     */
+    'health'?: ProjectHealth;
+    /**
+     * the base64 encoded image
+     * @type {string}
+     * @memberof CreateProject
+     */
+    'logo'?: string;
 }
 /**
  *
@@ -111,30 +111,30 @@ export interface CreateProject {
  * @interface CreateProjectDonation
  */
 export interface CreateProjectDonation {
-  /**
-   * realAmount times 100 to avoid floating points
-   * @type {number}
-   * @memberof CreateProjectDonation
-   */
-  amount?: number;
-  /**
-   * userId of the donator
-   * @type {string}
-   * @memberof CreateProjectDonation
-   */
-  source?: string;
-  /**
-   * projectId of the receiver project
-   * @type {string}
-   * @memberof CreateProjectDonation
-   */
-  destination?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateProjectDonation
-   */
-  reason?: string;
+    /**
+     * realAmount times 100 to avoid floating points
+     * @type {number}
+     * @memberof CreateProjectDonation
+     */
+    'amount'?: number;
+    /**
+     * userId of the donator
+     * @type {string}
+     * @memberof CreateProjectDonation
+     */
+    'source'?: string;
+    /**
+     * projectId of the receiver project
+     * @type {string}
+     * @memberof CreateProjectDonation
+     */
+    'destination'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateProjectDonation
+     */
+    'reason'?: string;
 }
 /**
  *
@@ -142,18 +142,18 @@ export interface CreateProjectDonation {
  * @interface CreateUser
  */
 export interface CreateUser {
-  /**
-   *
-   * @type {string}
-   * @memberof CreateUser
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateUser
-   */
-  firebaseId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateUser
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateUser
+     */
+    'firebaseId'?: string;
 }
 /**
  *
@@ -161,18 +161,18 @@ export interface CreateUser {
  * @interface Exception
  */
 export interface Exception {
-  /**
-   *
-   * @type {string}
-   * @memberof Exception
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Exception
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Exception
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Exception
+     */
+    'message'?: string;
 }
 /**
  *
@@ -180,18 +180,18 @@ export interface Exception {
  * @interface InternalServerException
  */
 export interface InternalServerException {
-  /**
-   *
-   * @type {string}
-   * @memberof InternalServerException
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof InternalServerException
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof InternalServerException
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof InternalServerException
+     */
+    'message'?: string;
 }
 /**
  *
@@ -199,12 +199,12 @@ export interface InternalServerException {
  * @interface Money
  */
 export interface Money {
-  /**
-   *
-   * @type {number}
-   * @memberof Money
-   */
-  amount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof Money
+     */
+    'amount'?: number;
 }
 /**
  *
@@ -212,18 +212,18 @@ export interface Money {
  * @interface NotAuthorizedException
  */
 export interface NotAuthorizedException {
-  /**
-   *
-   * @type {string}
-   * @memberof NotAuthorizedException
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof NotAuthorizedException
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotAuthorizedException
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotAuthorizedException
+     */
+    'message'?: string;
 }
 /**
  *
@@ -231,72 +231,72 @@ export interface NotAuthorizedException {
  * @interface Project
  */
 export interface Project {
-  /**
-   *
-   * @type {number}
-   * @memberof Project
-   */
-  totalDonations?: number;
-  /**
-   *
-   * @type {number}
-   * @memberof Project
-   */
-  collectedAmount?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof Project
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Project
-   */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Project
-   */
-  description?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof Project
-   */
-  targetAmount?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof Project
-   */
-  deadline?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Project
-   */
-  ownerId?: string;
-  /**
-   *
-   * @type {ProjectStatus}
-   * @memberof Project
-   */
-  status?: ProjectStatus;
-  /**
-   *
-   * @type {ProjectHealth}
-   * @memberof Project
-   */
-  health?: ProjectHealth;
-  /**
-   * the base64 encoded image
-   * @type {string}
-   * @memberof Project
-   */
-  logo?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Project
+     */
+    'totalDonations'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof Project
+     */
+    'collectedAmount'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof Project
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Project
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Project
+     */
+    'description'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Project
+     */
+    'targetAmount'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof Project
+     */
+    'deadline'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Project
+     */
+    'ownerId'?: string;
+    /**
+     *
+     * @type {ProjectStatus}
+     * @memberof Project
+     */
+    'status'?: ProjectStatus;
+    /**
+     *
+     * @type {ProjectHealth}
+     * @memberof Project
+     */
+    'health'?: ProjectHealth;
+    /**
+     * the base64 encoded image
+     * @type {string}
+     * @memberof Project
+     */
+    'logo'?: string;
 }
 /**
  *
@@ -304,30 +304,30 @@ export interface Project {
  * @interface ProjectComment
  */
 export interface ProjectComment {
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectComment
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectComment
-   */
-  projectId?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof ProjectComment
-   */
-  note?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectComment
-   */
-  content?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectComment
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectComment
+     */
+    'projectId'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof ProjectComment
+     */
+    'note'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectComment
+     */
+    'content'?: string;
 }
 /**
  *
@@ -335,42 +335,42 @@ export interface ProjectComment {
  * @interface ProjectDonation
  */
 export interface ProjectDonation {
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectDonation
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectDonation
-   */
-  creationDatetime?: string;
-  /**
-   * realAmount times 100 to avoid floating points
-   * @type {number}
-   * @memberof ProjectDonation
-   */
-  amount?: number;
-  /**
-   * userId of the donator
-   * @type {string}
-   * @memberof ProjectDonation
-   */
-  source?: string;
-  /**
-   * projectId of the receiver project
-   * @type {string}
-   * @memberof ProjectDonation
-   */
-  destination?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ProjectDonation
-   */
-  reason?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectDonation
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectDonation
+     */
+    'creationDatetime'?: string;
+    /**
+     * realAmount times 100 to avoid floating points
+     * @type {number}
+     * @memberof ProjectDonation
+     */
+    'amount'?: number;
+    /**
+     * userId of the donator
+     * @type {string}
+     * @memberof ProjectDonation
+     */
+    'source'?: string;
+    /**
+     * projectId of the receiver project
+     * @type {string}
+     * @memberof ProjectDonation
+     */
+    'destination'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProjectDonation
+     */
+    'reason'?: string;
 }
 /**
  *
@@ -378,9 +378,9 @@ export interface ProjectDonation {
  * @enum {string}
  */
 export declare enum ProjectHealth {
-  SUCCESS = 'SUCCESS',
-  FAILED = 'FAILED',
-  IN_PROGRESS = 'IN_PROGRESS',
+    SUCCESS = "SUCCESS",
+    FAILED = "FAILED",
+    IN_PROGRESS = "IN_PROGRESS"
 }
 /**
  *
@@ -388,8 +388,8 @@ export declare enum ProjectHealth {
  * @enum {string}
  */
 export declare enum ProjectStatus {
-  OPEN = 'OPEN',
-  CLOSE = 'CLOSE',
+    OPEN = "OPEN",
+    CLOSE = "CLOSE"
 }
 /**
  *
@@ -397,18 +397,18 @@ export declare enum ProjectStatus {
  * @interface ResourceNotFoundException
  */
 export interface ResourceNotFoundException {
-  /**
-   *
-   * @type {string}
-   * @memberof ResourceNotFoundException
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ResourceNotFoundException
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ResourceNotFoundException
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ResourceNotFoundException
+     */
+    'message'?: string;
 }
 /**
  *
@@ -416,18 +416,18 @@ export interface ResourceNotFoundException {
  * @interface TooManyRequestsException
  */
 export interface TooManyRequestsException {
-  /**
-   *
-   * @type {string}
-   * @memberof TooManyRequestsException
-   */
-  type?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof TooManyRequestsException
-   */
-  message?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TooManyRequestsException
+     */
+    'type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TooManyRequestsException
+     */
+    'message'?: string;
 }
 /**
  *
@@ -435,30 +435,30 @@ export interface TooManyRequestsException {
  * @interface User
  */
 export interface User {
-  /**
-   *
-   * @type {UserProfile}
-   * @memberof User
-   */
-  profile?: UserProfile;
-  /**
-   *
-   * @type {BankInfo}
-   * @memberof User
-   */
-  bankInfo?: BankInfo;
-  /**
-   *
-   * @type {string}
-   * @memberof User
-   */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof User
-   */
-  firebaseId?: string;
+    /**
+     *
+     * @type {UserProfile}
+     * @memberof User
+     */
+    'profile'?: UserProfile;
+    /**
+     *
+     * @type {BankInfo}
+     * @memberof User
+     */
+    'bankInfo'?: BankInfo;
+    /**
+     *
+     * @type {string}
+     * @memberof User
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof User
+     */
+    'firebaseId'?: string;
 }
 /**
  *
@@ -466,24 +466,24 @@ export interface User {
  * @interface UserProfile
  */
 export interface UserProfile {
-  /**
-   *
-   * @type {string}
-   * @memberof UserProfile
-   */
-  first_name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof UserProfile
-   */
-  last_name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof UserProfile
-   */
-  email?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserProfile
+     */
+    'first_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserProfile
+     */
+    'last_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserProfile
+     */
+    'email'?: string;
 }
 /**
  *
@@ -491,18 +491,18 @@ export interface UserProfile {
  * @interface UsernamePassword
  */
 export interface UsernamePassword {
-  /**
-   *
-   * @type {string}
-   * @memberof UsernamePassword
-   */
-  username?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof UsernamePassword
-   */
-  password?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsernamePassword
+     */
+    'username'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsernamePassword
+     */
+    'password'?: string;
 }
 /**
  *
@@ -510,52 +510,48 @@ export interface UsernamePassword {
  * @interface Whoami
  */
 export interface Whoami {
-  /**
-   *
-   * @type {User}
-   * @memberof Whoami
-   */
-  user?: User;
+    /**
+     *
+     * @type {User}
+     * @memberof Whoami
+     */
+    'user'?: User;
 }
 /**
  * HealthApi - axios parameter creator
  * @export
  */
 export declare const HealthApiAxiosParamCreator: (configuration?: Configuration) => {
-  /**
-   *
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  greet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    greet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HealthApi - functional programming interface
  * @export
  */
 export declare const HealthApiFp: (configuration?: Configuration) => {
-  /**
-   *
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  greet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    greet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * HealthApi - factory interface
  * @export
  */
-export declare const HealthApiFactory: (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance
-) => {
-  /**
-   *
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  greet(options?: any): AxiosPromise<string>;
+export declare const HealthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    greet(options?: any): AxiosPromise<string>;
 };
 /**
  * HealthApi - object-oriented interface
@@ -564,274 +560,229 @@ export declare const HealthApiFactory: (
  * @extends {BaseAPI}
  */
 export declare class HealthApi extends BaseAPI {
-  /**
-   *
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof HealthApi
-   */
-  greet(options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<string>>;
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApi
+     */
+    greet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
  * ProjectsApi - axios parameter creator
  * @export
  */
 export declare const ProjectsApiAxiosParamCreator: (configuration?: Configuration) => {
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {ProjectComment} [projectComment]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  commentProject: (projectId: string, projectComment?: ProjectComment, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary Create or update projects
-   * @param {Array<CreateProject>} [createProject]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  crupdateProjects: (createProject?: Array<CreateProject>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary donate some money to a project
-   * @param {string} projectId
-   * @param {Array<CreateProjectDonation>} [createProjectDonation]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  donate: (projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary Get the list of all projects
-   * @param {string} [ownerId] Filter projects by ownerId
-   * @param {string} [name] Filter projects by name
-   * @param {ProjectStatus} [status] Filter projects by ProjectStatus
-   * @param {ProjectHealth} [health] Filter projects by ProjectHealth
-   * @param {number} [page]
-   * @param {number} [pageSize]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllProjects: (
-    ownerId?: string,
-    name?: string,
-    status?: ProjectStatus,
-    health?: ProjectHealth,
-    page?: number,
-    pageSize?: number,
-    options?: AxiosRequestConfig
-  ) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary get all donations made on a project
-   * @param {string} projectId
-   * @param {string} [source]
-   * @param {string} [beginDate]
-   * @param {string} [endDate]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getDonationsByProjectId: (projectId: string, source?: string, beginDate?: string, endDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary Get a specific project by id
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectById: (projectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectComments: (projectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {ProjectComment} [projectComment]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    commentProject: (projectId: string, projectComment?: ProjectComment, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Create or update projects
+     * @param {Array<CreateProject>} [createProject]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    crupdateProjects: (createProject?: Array<CreateProject>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary donate some money to a project
+     * @param {string} projectId
+     * @param {Array<CreateProjectDonation>} [createProjectDonation]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    donate: (projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get the list of all projects
+     * @param {string} [ownerId] Filter projects by ownerId
+     * @param {string} [name] Filter projects by name
+     * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+     * @param {ProjectHealth} [health] Filter projects by ProjectHealth
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllProjects: (ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary get all donations made on a project
+     * @param {string} projectId
+     * @param {string} [source]
+     * @param {string} [beginDate]
+     * @param {string} [endDate]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDonationsByProjectId: (projectId: string, source?: string, beginDate?: string, endDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get a specific project by id
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectById: (projectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectComments: (projectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ProjectsApi - functional programming interface
  * @export
  */
 export declare const ProjectsApiFp: (configuration?: Configuration) => {
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {ProjectComment} [projectComment]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  commentProject(
-    projectId: string,
-    projectComment?: ProjectComment,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProjectDonation>>;
-  /**
-   *
-   * @summary Create or update projects
-   * @param {Array<CreateProject>} [createProject]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  crupdateProjects(
-    createProject?: Array<CreateProject>,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Project>>>;
-  /**
-   *
-   * @summary donate some money to a project
-   * @param {string} projectId
-   * @param {Array<CreateProjectDonation>} [createProjectDonation]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  donate(
-    projectId: string,
-    createProjectDonation?: Array<CreateProjectDonation>,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProjectDonation>>>;
-  /**
-   *
-   * @summary Get the list of all projects
-   * @param {string} [ownerId] Filter projects by ownerId
-   * @param {string} [name] Filter projects by name
-   * @param {ProjectStatus} [status] Filter projects by ProjectStatus
-   * @param {ProjectHealth} [health] Filter projects by ProjectHealth
-   * @param {number} [page]
-   * @param {number} [pageSize]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllProjects(
-    ownerId?: string,
-    name?: string,
-    status?: ProjectStatus,
-    health?: ProjectHealth,
-    page?: number,
-    pageSize?: number,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Project>>>;
-  /**
-   *
-   * @summary get all donations made on a project
-   * @param {string} projectId
-   * @param {string} [source]
-   * @param {string} [beginDate]
-   * @param {string} [endDate]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getDonationsByProjectId(
-    projectId: string,
-    source?: string,
-    beginDate?: string,
-    endDate?: string,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProjectDonation>>>;
-  /**
-   *
-   * @summary Get a specific project by id
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectById(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Project>>;
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectComments(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProjectDonation>>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {ProjectComment} [projectComment]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    commentProject(projectId: string, projectComment?: ProjectComment, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProjectDonation>>;
+    /**
+     *
+     * @summary Create or update projects
+     * @param {Array<CreateProject>} [createProject]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    crupdateProjects(createProject?: Array<CreateProject>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Project>>>;
+    /**
+     *
+     * @summary donate some money to a project
+     * @param {string} projectId
+     * @param {Array<CreateProjectDonation>} [createProjectDonation]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    donate(projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProjectDonation>>>;
+    /**
+     *
+     * @summary Get the list of all projects
+     * @param {string} [ownerId] Filter projects by ownerId
+     * @param {string} [name] Filter projects by name
+     * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+     * @param {ProjectHealth} [health] Filter projects by ProjectHealth
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllProjects(ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Project>>>;
+    /**
+     *
+     * @summary get all donations made on a project
+     * @param {string} projectId
+     * @param {string} [source]
+     * @param {string} [beginDate]
+     * @param {string} [endDate]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDonationsByProjectId(projectId: string, source?: string, beginDate?: string, endDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProjectDonation>>>;
+    /**
+     *
+     * @summary Get a specific project by id
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectById(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Project>>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectComments(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProjectDonation>>;
 };
 /**
  * ProjectsApi - factory interface
  * @export
  */
-export declare const ProjectsApiFactory: (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance
-) => {
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {ProjectComment} [projectComment]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  commentProject(projectId: string, projectComment?: ProjectComment, options?: any): AxiosPromise<ProjectDonation>;
-  /**
-   *
-   * @summary Create or update projects
-   * @param {Array<CreateProject>} [createProject]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  crupdateProjects(createProject?: Array<CreateProject>, options?: any): AxiosPromise<Array<Project>>;
-  /**
-   *
-   * @summary donate some money to a project
-   * @param {string} projectId
-   * @param {Array<CreateProjectDonation>} [createProjectDonation]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  donate(projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: any): AxiosPromise<Array<ProjectDonation>>;
-  /**
-   *
-   * @summary Get the list of all projects
-   * @param {string} [ownerId] Filter projects by ownerId
-   * @param {string} [name] Filter projects by name
-   * @param {ProjectStatus} [status] Filter projects by ProjectStatus
-   * @param {ProjectHealth} [health] Filter projects by ProjectHealth
-   * @param {number} [page]
-   * @param {number} [pageSize]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllProjects(
-    ownerId?: string,
-    name?: string,
-    status?: ProjectStatus,
-    health?: ProjectHealth,
-    page?: number,
-    pageSize?: number,
-    options?: any
-  ): AxiosPromise<Array<Project>>;
-  /**
-   *
-   * @summary get all donations made on a project
-   * @param {string} projectId
-   * @param {string} [source]
-   * @param {string} [beginDate]
-   * @param {string} [endDate]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getDonationsByProjectId(projectId: string, source?: string, beginDate?: string, endDate?: string, options?: any): AxiosPromise<Array<ProjectDonation>>;
-  /**
-   *
-   * @summary Get a specific project by id
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectById(projectId: string, options?: any): AxiosPromise<Project>;
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getProjectComments(projectId: string, options?: any): AxiosPromise<ProjectDonation>;
+export declare const ProjectsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {ProjectComment} [projectComment]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    commentProject(projectId: string, projectComment?: ProjectComment, options?: any): AxiosPromise<ProjectDonation>;
+    /**
+     *
+     * @summary Create or update projects
+     * @param {Array<CreateProject>} [createProject]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    crupdateProjects(createProject?: Array<CreateProject>, options?: any): AxiosPromise<Array<Project>>;
+    /**
+     *
+     * @summary donate some money to a project
+     * @param {string} projectId
+     * @param {Array<CreateProjectDonation>} [createProjectDonation]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    donate(projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: any): AxiosPromise<Array<ProjectDonation>>;
+    /**
+     *
+     * @summary Get the list of all projects
+     * @param {string} [ownerId] Filter projects by ownerId
+     * @param {string} [name] Filter projects by name
+     * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+     * @param {ProjectHealth} [health] Filter projects by ProjectHealth
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllProjects(ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number, options?: any): AxiosPromise<Array<Project>>;
+    /**
+     *
+     * @summary get all donations made on a project
+     * @param {string} projectId
+     * @param {string} [source]
+     * @param {string} [beginDate]
+     * @param {string} [endDate]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDonationsByProjectId(projectId: string, source?: string, beginDate?: string, endDate?: string, options?: any): AxiosPromise<Array<ProjectDonation>>;
+    /**
+     *
+     * @summary Get a specific project by id
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectById(projectId: string, options?: any): AxiosPromise<Project>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getProjectComments(projectId: string, options?: any): AxiosPromise<ProjectDonation>;
 };
 /**
  * ProjectsApi - object-oriented interface
@@ -840,158 +791,136 @@ export declare const ProjectsApiFactory: (
  * @extends {BaseAPI}
  */
 export declare class ProjectsApi extends BaseAPI {
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {ProjectComment} [projectComment]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  commentProject(projectId: string, projectComment?: ProjectComment, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<ProjectDonation>>;
-  /**
-   *
-   * @summary Create or update projects
-   * @param {Array<CreateProject>} [createProject]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  crupdateProjects(createProject?: Array<CreateProject>, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<Project[]>>;
-  /**
-   *
-   * @summary donate some money to a project
-   * @param {string} projectId
-   * @param {Array<CreateProjectDonation>} [createProjectDonation]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  donate(
-    projectId: string,
-    createProjectDonation?: Array<CreateProjectDonation>,
-    options?: AxiosRequestConfig
-  ): Promise<import('axios').AxiosResponse<ProjectDonation[]>>;
-  /**
-   *
-   * @summary Get the list of all projects
-   * @param {string} [ownerId] Filter projects by ownerId
-   * @param {string} [name] Filter projects by name
-   * @param {ProjectStatus} [status] Filter projects by ProjectStatus
-   * @param {ProjectHealth} [health] Filter projects by ProjectHealth
-   * @param {number} [page]
-   * @param {number} [pageSize]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  getAllProjects(
-    ownerId?: string,
-    name?: string,
-    status?: ProjectStatus,
-    health?: ProjectHealth,
-    page?: number,
-    pageSize?: number,
-    options?: AxiosRequestConfig
-  ): Promise<import('axios').AxiosResponse<Project[]>>;
-  /**
-   *
-   * @summary get all donations made on a project
-   * @param {string} projectId
-   * @param {string} [source]
-   * @param {string} [beginDate]
-   * @param {string} [endDate]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  getDonationsByProjectId(
-    projectId: string,
-    source?: string,
-    beginDate?: string,
-    endDate?: string,
-    options?: AxiosRequestConfig
-  ): Promise<import('axios').AxiosResponse<ProjectDonation[]>>;
-  /**
-   *
-   * @summary Get a specific project by id
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  getProjectById(projectId: string, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<Project>>;
-  /**
-   *
-   * @summary comment out a project
-   * @param {string} projectId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof ProjectsApi
-   */
-  getProjectComments(projectId: string, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<ProjectDonation>>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {ProjectComment} [projectComment]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    commentProject(projectId: string, projectComment?: ProjectComment, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProjectDonation>>;
+    /**
+     *
+     * @summary Create or update projects
+     * @param {Array<CreateProject>} [createProject]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    crupdateProjects(createProject?: Array<CreateProject>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Project[]>>;
+    /**
+     *
+     * @summary donate some money to a project
+     * @param {string} projectId
+     * @param {Array<CreateProjectDonation>} [createProjectDonation]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    donate(projectId: string, createProjectDonation?: Array<CreateProjectDonation>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProjectDonation[]>>;
+    /**
+     *
+     * @summary Get the list of all projects
+     * @param {string} [ownerId] Filter projects by ownerId
+     * @param {string} [name] Filter projects by name
+     * @param {ProjectStatus} [status] Filter projects by ProjectStatus
+     * @param {ProjectHealth} [health] Filter projects by ProjectHealth
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getAllProjects(ownerId?: string, name?: string, status?: ProjectStatus, health?: ProjectHealth, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Project[]>>;
+    /**
+     *
+     * @summary get all donations made on a project
+     * @param {string} projectId
+     * @param {string} [source]
+     * @param {string} [beginDate]
+     * @param {string} [endDate]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getDonationsByProjectId(projectId: string, source?: string, beginDate?: string, endDate?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProjectDonation[]>>;
+    /**
+     *
+     * @summary Get a specific project by id
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getProjectById(projectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Project>>;
+    /**
+     *
+     * @summary comment out a project
+     * @param {string} projectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    getProjectComments(projectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProjectDonation>>;
 }
 /**
  * SecurityApi - axios parameter creator
  * @export
  */
 export declare const SecurityApiAxiosParamCreator: (configuration?: Configuration) => {
-  /**
-   *
-   * @param {UsernamePassword} [usernamePassword]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  requestToken: (usernamePassword?: UsernamePassword, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   * tells you who you are
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  whoami: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @param {UsernamePassword} [usernamePassword]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestToken: (usernamePassword?: UsernamePassword, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * tells you who you are
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    whoami: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SecurityApi - functional programming interface
  * @export
  */
 export declare const SecurityApiFp: (configuration?: Configuration) => {
-  /**
-   *
-   * @param {UsernamePassword} [usernamePassword]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-  /**
-   * tells you who you are
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  whoami(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Whoami>>;
+    /**
+     *
+     * @param {UsernamePassword} [usernamePassword]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
+     * tells you who you are
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    whoami(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Whoami>>;
 };
 /**
  * SecurityApi - factory interface
  * @export
  */
-export declare const SecurityApiFactory: (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance
-) => {
-  /**
-   *
-   * @param {UsernamePassword} [usernamePassword]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  requestToken(usernamePassword?: UsernamePassword, options?: any): AxiosPromise<string>;
-  /**
-   * tells you who you are
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  whoami(options?: any): AxiosPromise<Whoami>;
+export declare const SecurityApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @param {UsernamePassword} [usernamePassword]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestToken(usernamePassword?: UsernamePassword, options?: any): AxiosPromise<string>;
+    /**
+     * tells you who you are
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    whoami(options?: any): AxiosPromise<Whoami>;
 };
 /**
  * SecurityApi - object-oriented interface
@@ -1000,170 +929,162 @@ export declare const SecurityApiFactory: (
  * @extends {BaseAPI}
  */
 export declare class SecurityApi extends BaseAPI {
-  /**
-   *
-   * @param {UsernamePassword} [usernamePassword]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof SecurityApi
-   */
-  requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<string>>;
-  /**
-   * tells you who you are
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof SecurityApi
-   */
-  whoami(options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<Whoami>>;
+    /**
+     *
+     * @param {UsernamePassword} [usernamePassword]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SecurityApi
+     */
+    requestToken(usernamePassword?: UsernamePassword, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    /**
+     * tells you who you are
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SecurityApi
+     */
+    whoami(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Whoami>>;
 }
 /**
  * UsersApi - axios parameter creator
  * @export
  */
 export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) => {
-  /**
-   *
-   * @summary CreateUser
-   * @param {Array<CreateUser>} [createUser]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  createUser: (createUser?: Array<CreateUser>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary deposit a certain amount to your kotikota account
-   * @param {string} userId
-   * @param {Money} [money]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  deposit: (userId: string, money?: Money, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary get all users
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllUsers: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary getUserById
-   * @param {string} userId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getUserById: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-  /**
-   *
-   * @summary update user profile
-   * @param {string} userId
-   * @param {UserProfile} [userProfile]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  updateUserProfile: (userId: string, userProfile?: UserProfile, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary CreateUser
+     * @param {Array<CreateUser>} [createUser]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser: (createUser?: Array<CreateUser>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary deposit a certain amount to your kotikota account
+     * @param {string} userId
+     * @param {Money} [money]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deposit: (userId: string, money?: Money, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary get all users
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUsers: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getUserById
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserById: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary update user profile
+     * @param {string} userId
+     * @param {UserProfile} [userProfile]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserProfile: (userId: string, userProfile?: UserProfile, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
  * @export
  */
 export declare const UsersApiFp: (configuration?: Configuration) => {
-  /**
-   *
-   * @summary CreateUser
-   * @param {Array<CreateUser>} [createUser]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  createUser(createUser?: Array<CreateUser>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
-  /**
-   *
-   * @summary deposit a certain amount to your kotikota account
-   * @param {string} userId
-   * @param {Money} [money]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  deposit(userId: string, money?: Money, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
-  /**
-   *
-   * @summary get all users
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllUsers(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
-  /**
-   *
-   * @summary getUserById
-   * @param {string} userId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getUserById(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
-  /**
-   *
-   * @summary update user profile
-   * @param {string} userId
-   * @param {UserProfile} [userProfile]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  updateUserProfile(
-    userId: string,
-    userProfile?: UserProfile,
-    options?: AxiosRequestConfig
-  ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary CreateUser
+     * @param {Array<CreateUser>} [createUser]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser(createUser?: Array<CreateUser>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary deposit a certain amount to your kotikota account
+     * @param {string} userId
+     * @param {Money} [money]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deposit(userId: string, money?: Money, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary get all users
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUsers(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    /**
+     *
+     * @summary getUserById
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserById(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary update user profile
+     * @param {string} userId
+     * @param {UserProfile} [userProfile]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserProfile(userId: string, userProfile?: UserProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * UsersApi - factory interface
  * @export
  */
-export declare const UsersApiFactory: (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance
-) => {
-  /**
-   *
-   * @summary CreateUser
-   * @param {Array<CreateUser>} [createUser]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  createUser(createUser?: Array<CreateUser>, options?: any): AxiosPromise<User>;
-  /**
-   *
-   * @summary deposit a certain amount to your kotikota account
-   * @param {string} userId
-   * @param {Money} [money]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  deposit(userId: string, money?: Money, options?: any): AxiosPromise<User>;
-  /**
-   *
-   * @summary get all users
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getAllUsers(options?: any): AxiosPromise<Array<User>>;
-  /**
-   *
-   * @summary getUserById
-   * @param {string} userId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  getUserById(userId: string, options?: any): AxiosPromise<User>;
-  /**
-   *
-   * @summary update user profile
-   * @param {string} userId
-   * @param {UserProfile} [userProfile]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   */
-  updateUserProfile(userId: string, userProfile?: UserProfile, options?: any): AxiosPromise<User>;
+export declare const UsersApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary CreateUser
+     * @param {Array<CreateUser>} [createUser]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUser(createUser?: Array<CreateUser>, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary deposit a certain amount to your kotikota account
+     * @param {string} userId
+     * @param {Money} [money]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deposit(userId: string, money?: Money, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary get all users
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUsers(options?: any): AxiosPromise<Array<User>>;
+    /**
+     *
+     * @summary getUserById
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserById(userId: string, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary update user profile
+     * @param {string} userId
+     * @param {UserProfile} [userProfile]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserProfile(userId: string, userProfile?: UserProfile, options?: any): AxiosPromise<User>;
 };
 /**
  * UsersApi - object-oriented interface
@@ -1172,50 +1093,50 @@ export declare const UsersApiFactory: (
  * @extends {BaseAPI}
  */
 export declare class UsersApi extends BaseAPI {
-  /**
-   *
-   * @summary CreateUser
-   * @param {Array<CreateUser>} [createUser]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UsersApi
-   */
-  createUser(createUser?: Array<CreateUser>, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<User>>;
-  /**
-   *
-   * @summary deposit a certain amount to your kotikota account
-   * @param {string} userId
-   * @param {Money} [money]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UsersApi
-   */
-  deposit(userId: string, money?: Money, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<User>>;
-  /**
-   *
-   * @summary get all users
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UsersApi
-   */
-  getAllUsers(options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<User[]>>;
-  /**
-   *
-   * @summary getUserById
-   * @param {string} userId
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UsersApi
-   */
-  getUserById(userId: string, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<User>>;
-  /**
-   *
-   * @summary update user profile
-   * @param {string} userId
-   * @param {UserProfile} [userProfile]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UsersApi
-   */
-  updateUserProfile(userId: string, userProfile?: UserProfile, options?: AxiosRequestConfig): Promise<import('axios').AxiosResponse<User>>;
+    /**
+     *
+     * @summary CreateUser
+     * @param {Array<CreateUser>} [createUser]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    createUser(createUser?: Array<CreateUser>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary deposit a certain amount to your kotikota account
+     * @param {string} userId
+     * @param {Money} [money]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    deposit(userId: string, money?: Money, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary get all users
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    getAllUsers(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
+    /**
+     *
+     * @summary getUserById
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    getUserById(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary update user profile
+     * @param {string} userId
+     * @param {UserProfile} [userProfile]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateUserProfile(userId: string, userProfile?: UserProfile, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
 }
