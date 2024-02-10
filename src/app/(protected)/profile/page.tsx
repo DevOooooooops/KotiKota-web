@@ -11,7 +11,6 @@ import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaMailBulk, FaUserCircle } from 'react-icons/fa';
-import { v4 } from 'uuid';
 
 export const Profile = () => {
   const { fetch: getCurrentUser, data, error } = useFetch<User, TGetOneProfile>(userProvider.getOne);
@@ -30,10 +29,16 @@ export const Profile = () => {
 
   const { enqueueSnackbar } = useSnackbar();
   const { fetch } = useFetch<string, TUpdateProfile>(userProvider.updateProfile);
-  const handleSubmit = form.handleSubmit(({ email, firstName, lastName, profilePicture }) =>
-    fetch(v4(), { email, first_name: firstName, last_name: lastName, profile_picture: profilePicture }).then(() => {
+  const handleSubmit = form.handleSubmit(({ email, firstName, lastName, profilePicture, birthDate }) =>
+    fetch(getCached.user()?.id || '', {
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      profile_picture: data?.profile?.profile_picture,
+      birthdate: birthDate,
+    }).then(() => {
       const userId = getCached.user()?.id;
-      if (error && userId) {
+      if (!error && userId) {
         enqueueSnackbar(fieldMessages.success_profile_update);
         getCurrentUser(userId);
       }

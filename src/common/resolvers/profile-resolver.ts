@@ -10,9 +10,7 @@ const profileValidator = zod.object({
   profilePicture: zod
     .any()
     .transform(data => data as File[])
-    .refine(files => files.length === 1, { message: 'You should upload one file.' })
     .transform(files => files[0])
-    .refine(file => file.type && file.type.startsWith('image/'))
     .transform(file => fileToBase64(file)),
 });
 
