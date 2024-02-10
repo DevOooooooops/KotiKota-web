@@ -1,11 +1,13 @@
 'use client';
 import { RHFTextInput } from '@/common/components';
 import { Button } from '@/common/components/button/Button';
+import { PROJECT_PATH } from '@/common/constants/variables';
 import { useFetch } from '@/common/hooks';
 import { TCrupdateProjectForm, crupdateProjectResolver } from '@/common/resolvers/project-resolver';
 import { getCached } from '@/common/utils';
 import { TCreateOrUpdateProject, projectProvider } from '@/provider';
 import { Project, ProjectHealth, ProjectStatus } from '@/provider/client';
+import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaFile, FaHistory, FaMoneyBill, FaPen } from 'react-icons/fa';
 import { MdOutlineDescription } from 'react-icons/md';
@@ -13,8 +15,8 @@ import { v4 } from 'uuid';
 
 const Page = () => {
   const form = useForm<TCrupdateProjectForm>({ mode: 'all', resolver: crupdateProjectResolver });
-  const { fetch, isLoading } = useFetch<Project[], TCreateOrUpdateProject>(projectProvider.createOrUpdate);
-
+  const { fetch, isLoading, error } = useFetch<Project[], TCreateOrUpdateProject>(projectProvider.createOrUpdate);
+  const { push } = useRouter();
   const handleSubmit = form.handleSubmit(async data => {
     const userId = getCached.user()?.id;
 
@@ -26,6 +28,10 @@ const Page = () => {
         status: ProjectStatus.OPEN,
         id: v4(),
         ownerId: userId,
+      }).then(() => {
+        if (!error) {
+          push(PROJECT_PATH);
+        }
       });
   });
 
