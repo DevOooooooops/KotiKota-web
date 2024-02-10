@@ -4,7 +4,7 @@ import { IChildren } from '@/common/components';
 import Image from 'next/image';
 import { FC } from 'react';
 
-const Layout: FC<IChildren> = () => {
+const Layout: FC<IChildren> = ({ children }) => {
   return (
     <div className='w-screen h-screen flex justify-start items-start'>
       <div className='fixed bg-white w-screen h-16 shadow-sm top-0 left-0 flex justify-start items-center'>
@@ -20,6 +20,7 @@ const Layout: FC<IChildren> = () => {
           </div>
         </div>
       </div>
+      {children}
     </div>
   );
 };

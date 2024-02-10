@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import { useFetch } from '@/common/hooks';
 import { getColorBy } from '@/common/utils';
@@ -8,9 +9,11 @@ import { GoSearch } from 'react-icons/go';
 
 const Page = () => {
   const { fetch: fetchProjects, data: projects } = useFetch<Project[], TGetAllProjects>(projectProvider.getAll);
+
   useEffect(() => {
     fetchProjects();
-  }, [fetchProjects]);
+  }, []);
+
   return (
     <div className='mt-20 p-2 w-full h-[90vh] overflow-x-hidden overflow-y-auto flex justify-start items-start gap-4 flex-wrap'>
       <div className='w-1/3 relative'>
