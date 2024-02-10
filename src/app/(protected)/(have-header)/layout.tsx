@@ -1,11 +1,15 @@
 'use client';
 import LOGO from '@/assets/kotikota-logo-without-circle.png';
 import { IChildren } from '@/common/components';
-import { PROFILE_PATH } from '@/common/constants/variables';
+import { PROFILE_PATH, SIGN_IN_PATH } from '@/common/constants/variables';
+import { auth } from '@/provider';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
-
+import { FaBusinessTime } from 'react-icons/fa';
+import { FaMessage } from 'react-icons/fa6';
+import { FcBusiness } from 'react-icons/fc';
 const Layout: FC<IChildren> = ({ children }) => {
   const { push } = useRouter();
 
@@ -15,7 +19,23 @@ const Layout: FC<IChildren> = ({ children }) => {
         <div className='basis-44'>
           <Image src={LOGO} alt='logo' className='object-contain h-16' />
         </div>
-        <div className='grow flex justify-center items-center'></div>
+        <div className='grow flex justify-center items-center'>
+            <Link href={"/chat"} className='hover:text-blue-700 mr-28  text-center'>
+               Message
+            </Link>
+            
+            <Link href={"/projects/crete"} className='hover:text-blue-700 mr-24  text-center'>
+               Create project
+            </Link>
+
+             <Link href={"/projects"} className='hover:text-blue-700  text-center'>
+               Projects
+            </Link>
+
+        </div>
+        <Link href={SIGN_IN_PATH} className='hover:text-blue-700  text-center'>
+                Log out
+        </Link>
         <div style={{cursor: 'pointer'}} onClick={() => push(PROFILE_PATH)} className='basis-16 flex justify-start items-start'>
           <div className='avatar online placeholder'>
             <div className='bg-neutral text-neutral-content rounded-full w-14'>
