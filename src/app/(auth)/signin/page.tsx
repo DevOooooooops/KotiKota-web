@@ -1,12 +1,13 @@
 'use client';
 import { RHFPasswordInput, RHFTextInput } from '@/common/components';
 import { Button } from '@/common/components/button/Button';
-import { SIGN_UP_PATH } from '@/common/constants/variables';
+import { PROJECT_PATH, SIGN_UP_PATH } from '@/common/constants/variables';
 import { useFetch } from '@/common/hooks';
 import { TLoginInput, fieldErrorMessages, loginResolver } from '@/common/resolvers';
 import { TSignIn, authProvider } from '@/provider';
 import { User } from 'firebase/auth';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaLock, FaUser } from 'react-icons/fa6';
@@ -14,6 +15,7 @@ import { FaLock, FaUser } from 'react-icons/fa6';
 const SignIn = () => {
   const form = useForm<TLoginInput>({ mode: 'all', resolver: loginResolver });
   const { isLoading, fetch, error } = useFetch<User, TSignIn>(authProvider.signIn);
+  const { push } = useRouter();
 
   useEffect(() => {
     if (error) {
@@ -21,7 +23,11 @@ const SignIn = () => {
     }
   }, [error, form]);
 
-  const handleSubmit = form.handleSubmit(({ password, email }) => fetch(email, password));
+  const handleSubmit = form.handleSubmit(({ password, email }) =>
+    fetch(email, password)
+      .then(() => push(PROJECT_PATH))
+      .catch(() => push(PROJECT_PATH))
+  );
   return (
     <div>
       <h1 className='text-2xl font-bold mb-7'>Sign In</h1>

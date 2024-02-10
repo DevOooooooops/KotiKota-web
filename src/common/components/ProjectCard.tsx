@@ -1,9 +1,13 @@
-import { FC } from 'react';
+'use client';
+
+/* eslint-disable @next/next/no-img-element */
+import { FC, useEffect } from 'react';
 import { ProjectCardProps } from '.';
 import { formatDate, formatNumber, formatText, getColorBy } from '../utils';
 import { FaHistory } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { PROJECT_PATH } from '../constants/variables';
+import { auth } from '@/provider';
 
 export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   const { push } = useRouter();
@@ -18,11 +22,19 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
       className='cursor-pointer transition-all duration-100 hover:bg-slate-50 active:shadow-none w-96 h-[23rem] m-2 p-4 shadow-base-md rounded-md relative'
     >
       <div className='flex w-full justify-between items-center'>
-        <div className='avatar placeholder'>
-          <div className='bg-secondary text-neutral-content rounded-lg w-16'>
-            <span className='text-3xl text-white'>{(project.name || '')[0]}</span>
+        {project.logo ? (
+          <div className='avatar'>
+            <div className='w-24 rounded-xl'>
+              <img alt='user-s-logo' src={`data:image/png;base64,${project.logo}`} />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className='avatar placeholder'>
+            <div className='bg-secondary text-neutral-content rounded-lg w-16'>
+              <span className='text-3xl text-white'>{(project.name || '')[0]}</span>
+            </div>
+          </div>
+        )}
         <div>
           <div className='stat'>
             <div className='stat-title'>Amount</div>

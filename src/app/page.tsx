@@ -1,18 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { SIGN_IN_PATH } from '@/common/constants/variables';
-import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+import { Loading } from '@/common/components';
+import { PROJECT_PATH, SIGN_IN_PATH } from '@/common/constants/variables';
+import { getCached } from '@/common/utils';
+import { auth } from '@/provider';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Home() {
-  useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect(SIGN_IN_PATH);
-    },
-  });
+  const { push } = useRouter();
 
-  return <div className='w-screen h-screen flex justify-start items-start'></div>;
+  useEffect(() => {
+    const token = getCached.token();
+    if (!token || token?.length === 0) {
+      push(SIGN_IN_PATH);
+    } else {
+      push(PROJECT_PATH);
+    }
+  }, []);
+
+  return <Loading />;
 }
-
-Home.requiredAuth = true;

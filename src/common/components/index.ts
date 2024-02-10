@@ -1,3 +1,4 @@
+export * from './Loading';
 export * from './MainProvider';
 export * from './ProjectCard';
 export * from './SquareProgress';
