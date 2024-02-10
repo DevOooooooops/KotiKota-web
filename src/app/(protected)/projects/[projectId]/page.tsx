@@ -6,7 +6,7 @@ import { fieldMessages } from '@/common/constants';
 import { useWhoami } from '@/common/context';
 import { useFetch } from '@/common/hooks';
 import { fieldErrorMessages } from '@/common/resolvers';
-import { formatNumber, getColorBy, renderBase64 } from '@/common/utils';
+import { formatNumber, getCached, getColorBy, renderBase64 } from '@/common/utils';
 import { TDonate, TGetOneProject, projectProvider } from '@/provider';
 import { Project, ProjectDonation } from '@/provider/client';
 import { useSnackbar } from 'notistack';
@@ -20,8 +20,6 @@ const Page: FC<any> = ({ params }) => {
   const { fetch: donate, isLoading: donationLoading } = useFetch<ProjectDonation[], TDonate>(projectProvider.donate);
   const { enqueueSnackbar } = useSnackbar();
 
-  const { whoami } = useWhoami();
-
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (!/[^\d\s\.]/gi.test(value)) {
@@ -32,7 +30,7 @@ const Page: FC<any> = ({ params }) => {
   const handleSubmit = (e?: FormEvent) => {
     if (e) e.preventDefault();
 
-    donate(data?.id || '', { amount: +input.replace(/^\d/g, ''), destination: data?.id, source: whoami?.user?.id })
+    donate(data?.id || '', { amount: +input.replace(/^\d/g, ''), destination: data?.id, source: getCached.user()?.id })
       .then(() => {
         enqueueSnackbar(fieldMessages.success_donation, { className: 'bg-success' });
       })

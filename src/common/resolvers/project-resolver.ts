@@ -10,7 +10,10 @@ const crupdateProjectValidator = zod.object({
     .any()
     .refine(data => data.length > 0, { message: fieldErrorMessages.required })
     .refine(data => /^\d/.test(data), { message: fieldErrorMessages.number_only }),
-  deadline: zod.string().min(1, { message: fieldErrorMessages.required }),
+  deadline: zod
+    .string()
+    .min(1, { message: fieldErrorMessages.required })
+    .transform(value => new Date(value).toISOString()),
   logo: zod
     .any()
     .transform(data => data as File[])

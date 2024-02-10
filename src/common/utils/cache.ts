@@ -13,7 +13,7 @@ const setItem = (name: string, value: any, ifNull = '') => {
 };
 const getItem = (name: string, ifNull: any = null) => {
   try {
-    return JSON.parse(localStorage.get(name));
+    return JSON.parse(localStorage.getItem(name) || '');
   } catch {
     return ifNull;
   }

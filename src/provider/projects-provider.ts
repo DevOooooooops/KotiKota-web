@@ -6,8 +6,8 @@ export const projectProvider = {
     const { data } = await projectsApi().getAllProjects(ownerId, name, status, health, page, pageSize);
     return data;
   },
-  async createOrUpdate(project: Project) {
-    const { data } = await projectsApi().crupdateProjects([project]);
+  async createOrUpdate(userId: string, project: Project) {
+    const { data } = await projectsApi().crupdateProjects(userId, [project]);
     return data;
   },
   async getOne(projectId: string) {

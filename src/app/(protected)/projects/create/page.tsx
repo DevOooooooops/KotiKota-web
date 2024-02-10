@@ -1,7 +1,6 @@
 'use client';
 import { RHFTextInput } from '@/common/components';
 import { Button } from '@/common/components/button/Button';
-import { useWhoami } from '@/common/context';
 import { useFetch } from '@/common/hooks';
 import { TCrupdateProjectForm, crupdateProjectResolver } from '@/common/resolvers/project-resolver';
 import { getCached } from '@/common/utils';
@@ -14,13 +13,13 @@ import { v4 } from 'uuid';
 
 const Page = () => {
   const form = useForm<TCrupdateProjectForm>({ mode: 'all', resolver: crupdateProjectResolver });
-  const { fetch } = useFetch<Project[], TCreateOrUpdateProject>(projectProvider.createOrUpdate);
-  const { whoami } = useWhoami();
+  const { fetch, isLoading } = useFetch<Project[], TCreateOrUpdateProject>(projectProvider.createOrUpdate);
 
   const handleSubmit = form.handleSubmit(async data => {
-    const userId = whoami.user?.id;
+    const userId = getCached.user()?.id;
+
     if (userId)
-      fetch({
+      fetch(userId, {
         ...data,
         logo: data.logo.split(',')[1],
         health: ProjectHealth.IN_PROGRESS,
@@ -40,7 +39,7 @@ const Page = () => {
           <RHFTextInput className='w-80' type='date' name='deadline' label='Deadline' startIcon={<FaHistory />} />
           <RHFTextInput className='w-80' type='number' name='targetAmount' label='Target amount' startIcon={<FaMoneyBill />} />
           <RHFTextInput className='w-80' type='file' accept='image/*' name='logo' label='Logo' startIcon={<FaFile />} />
-          <Button className='w-80' label='Submit' type='submit' />
+          <Button isLoading={isLoading} className='w-80' label='Submit' type='submit' />
         </form>
       </FormProvider>
     </div>
