@@ -3,12 +3,14 @@
 
 import { Button } from '@/common/components/button/Button';
 import { fieldMessages } from '@/common/constants';
+import { PROJECT_PATH } from '@/common/constants/variables';
 import { useWhoami } from '@/common/context';
 import { useFetch } from '@/common/hooks';
 import { fieldErrorMessages } from '@/common/resolvers';
 import { formatNumber, getCached, getColorBy, renderBase64 } from '@/common/utils';
 import { TDonate, TGetOneProject, projectProvider } from '@/provider';
 import { Project, ProjectDonation } from '@/provider/client';
+import { useRouter } from 'next/navigation';
 import { useSnackbar } from 'notistack';
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import { GiShakingHands } from 'react-icons/gi';
@@ -16,7 +18,7 @@ import { GiShakingHands } from 'react-icons/gi';
 const Page: FC<any> = ({ params }) => {
   const { data, fetch } = useFetch<Project, TGetOneProject>(projectProvider.getOne);
   const [input, setInput] = useState('');
-
+  const { push } = useRouter();
   const { fetch: donate, isLoading: donationLoading } = useFetch<ProjectDonation[], TDonate>(projectProvider.donate);
   const { enqueueSnackbar } = useSnackbar();
 
@@ -33,6 +35,7 @@ const Page: FC<any> = ({ params }) => {
     donate(data?.id || '', { amount: +input.replace(/^\d/g, ''), destination: data?.id, source: getCached.user()?.id })
       .then(() => {
         enqueueSnackbar(fieldMessages.success_donation, { className: 'bg-success' });
+        push(PROJECT_PATH);
       })
       .catch(() => {
         enqueueSnackbar(fieldErrorMessages.error, { className: 'bg-error' });
